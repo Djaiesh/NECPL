@@ -1,9 +1,9 @@
 [build]
 command = "npm run build"
 publish = "dist"
-environment = { NODE_VERSION = "20" }
 
 [build.environment]
+NODE_VERSION = "20"
 VITE_APP_TITLE = "NECPL"
 
 [[redirects]]
@@ -13,34 +13,34 @@ status = 200
 
 [[headers]]
 for = "/"
-[headers.values]
-X-Frame-Options = "SAMEORIGIN"
-X-Content-Type-Options = "nosniff"
-X-XSS-Protection = "1; mode=block"
-Referrer-Policy = "strict-origin-when-cross-origin"
-Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+  [headers.values]
+  X-Frame-Options = "SAMEORIGIN"
+  X-Content-Type-Options = "nosniff"
+  X-XSS-Protection = "1; mode=block"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  Permissions-Policy = "geolocation=(), microphone=(), camera=()"
 
 [[headers]]
 for = "/dist/*"
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
 for = "/*.html"
-[headers.values]
-Cache-Control = "public, max-age=0, must-revalidate"
+  [headers.values]
+  Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
 for = "/*.css"
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
 for = "/*.js"
-[headers.values]
-Cache-Control = "public, max-age=31536000, immutable"
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
 for = "/api/*"
-[headers.values]
-Cache-Control = "public, max-age=0, must-revalidate"
+  [headers.values]
+  Cache-Control = "public, max-age=0, must-revalidate"
