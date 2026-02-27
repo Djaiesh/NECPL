@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 213 30% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 213 30% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 30% 15%;
+
+    --primary: 213 70% 28%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 45 95% 55%;
+    --secondary-foreground: 213 30% 15%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 213 15% 45%;
+
+    --accent: 213 50% 92%;
+    --accent-foreground: 213 70% 28%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 213 20% 85%;
+    --input: 213 20% 85%;
+    --ring: 213 70% 28%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 213 70% 22%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 45 95% 55%;
+    --sidebar-primary-foreground: 213 30% 15%;
+    --sidebar-accent: 213 50% 30%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 213 40% 35%;
+    --sidebar-ring: 45 95% 55%;
+
+    /* Custom tokens */
+    --navy: 213 70% 22%;
+    --navy-foreground: 0 0% 100%;
+    --gold: 45 95% 55%;
+    --gold-foreground: 213 30% 15%;
+    --steel: 213 10% 55%;
+    --steel-light: 213 15% 75%;
+    --section-alt: 210 20% 96%;
+  }
+
+  .dark {
+    --background: 213 30% 8%;
+    --foreground: 210 20% 95%;
+    --card: 213 30% 12%;
+    --card-foreground: 210 20% 95%;
+    --popover: 213 30% 12%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 213 60% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 95% 55%;
+    --secondary-foreground: 213 30% 15%;
+    --muted: 213 20% 18%;
+    --muted-foreground: 213 15% 60%;
+    --accent: 213 30% 20%;
+    --accent-foreground: 210 20% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 213 20% 22%;
+    --input: 213 20% 22%;
+    --ring: 213 60% 50%;
+    --sidebar-background: 213 30% 6%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 45 95% 55%;
+    --sidebar-primary-foreground: 213 30% 15%;
+    --sidebar-accent: 213 30% 15%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 213 20% 22%;
+    --sidebar-ring: 45 95% 55%;
+    --navy: 213 50% 15%;
+    --navy-foreground: 0 0% 100%;
+    --gold: 45 95% 55%;
+    --gold-foreground: 213 30% 15%;
+    --steel: 213 10% 50%;
+    --steel-light: 213 15% 35%;
+    --section-alt: 213 25% 10%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24 px-4;
+  }
+
+  .section-alt {
+    background-color: hsl(var(--section-alt));
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-[hsl(var(--gold))];
+  }
+
+  .nav-dropdown {
+    @apply absolute top-full left-0 bg-popover border border-border rounded-md shadow-lg min-w-[220px] z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200;
+  }
+
+  .nav-dropdown-item {
+    @apply block px-4 py-2.5 text-sm text-popover-foreground hover:bg-accent hover:text-accent-foreground transition-colors;
+  }
+
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-r from-[hsl(var(--navy))/0.6] to-[hsl(var(--navy))/0.3];
+  }
+}
+
+@layer utilities {
+  .animate-count-up {
+    animation: countUp 2s ease-out forwards;
+  }
+
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.5s ease-out forwards;
+  }
+
+  @keyframes scrollFlow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .animate-scroll-flow {
+    animation: scrollFlow 30s linear infinite;
+  }
+
+  @keyframes loadingBar {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+  }
+
+  .animate-loading-bar {
+    animation: loadingBar 1.5s ease-in-out forwards;
+  }
+}
