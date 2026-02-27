@@ -3,16 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  server: {
-    host: true, // allow external access
-    port: 8080,
-    hmr: {
-      overlay: false,
-      host: "low-increasing-united-movement.trycloudflare.com",
-    },
-  },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {
@@ -20,17 +11,15 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Production optimization
     minify: "terser",
     terserOptions: {
       compress: {
-        drop_console: true, // Remove console logs in production
+        drop_console: true,
         drop_debugger: true,
       },
     },
     rollupOptions: {
       output: {
-        // Code splitting for better caching
         manualChunks: {
           "react-vendor": ["react", "react-dom"],
           "ui-vendor": [
@@ -43,17 +32,14 @@ export default defineConfig(({ mode }) => ({
             "@radix-ui/react-tabs",
             "@radix-ui/react-tooltip",
           ],
-          "router": ["react-router-dom"],
-          "forms": ["react-hook-form", "@hookform/resolvers", "zod"],
-          "charts": ["recharts"],
+          router: ["react-router-dom"],
+          forms: ["react-hook-form", "@hookform/resolvers", "zod"],
+          charts: ["recharts"],
         },
       },
     },
-    // Source maps for production debugging
     sourcemap: true,
-    // Increase chunk size warning limit
     chunkSizeWarningLimit: 1000,
-    // CSS code splitting
     cssCodeSplit: true,
   },
 }));
