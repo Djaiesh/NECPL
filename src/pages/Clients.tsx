@@ -26,21 +26,21 @@ import { Star, Quote, Building2 } from "lucide-react";
 const placeholderLogo = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23e8e8e8' width='100' height='100'/%3E%3Ccircle cx='50' cy='35' r='15' fill='%23999'/%3E%3Cpath d='M30 70 Q50 55 70 70' fill='%23999'/%3E%3C/svg%3E";
 
 const clients = [
-  { name: "L&T Technology Services", logo: lt },
-  { name: "GTL Infrastructure", logo: gtl },
+  { name: "L&T", logo: lt },
+  { name: "GTL", logo: gtl },
   { name: "Sify", logo: sify },
   { name: "Airtel", logo: airtel },
   { name: "Avantel", logo: avantell },
   { name: "Amazon", logo: amazon },
   { name: "ONGC", logo: ongc },
-  { name: "Bharat Electronics", logo: bel },
-  { name: "Tata Communications", logo: tata },
+  { name: "BEL", logo: bel },
+  { name: "Tata Comm", logo: tata },
   { name: "Jindal Power", logo: jindal },
   { name: "HT Media", logo: ht },
   { name: "Power Mech", logo: power },
-  { name: "Ardee Engineering", logo: adree },
+  { name: "Ardee Eng", logo: adree },
   { name: "DRDO", logo: drdo },
-  { name: "All India Radio", logo: air },
+  { name: "AIR", logo: air },
   { name: "More", logo: more },
 ];
 
